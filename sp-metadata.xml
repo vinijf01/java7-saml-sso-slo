@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:saml-poc:sp">
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDMTCCAhmgAwIBAgIIezMruVHJuCUwDQYJKoZIhvcNAQELBQAwRzELMAkGA1UEBhMCSUQxEzARBgNVBAoTCmlkLmNvLnZpbmkxETAPBgNVBAsTCFNBTUwgUG9DMRAwDgYDVQQDEwdzYW1sLXNwMB4XDTI2MDUyMDA0MjU1M1oXDTM2MDUxNzA0MjU1M1owRzELMAkGA1UEBhMCSUQxEzARBgNVBAoTCmlkLmNvLnZpbmkxETAPBgNVBAsTCFNBTUwgUG9DMRAwDgYDVQQDEwdzYW1sLXNwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuWVq+IY1LtCJIq0lYiY6DzVMJSrxk4iu0gvGPqbU48/BVlvxg3+Isrm7TClr1MtWKOmFYusdsWh+udWzCg0jqzuv1Cnb3WGRLA9MvNQKDU9WkhEt00AvAf6TYfTd0/2RWEQ6Nq18X2mnw3hwpqnpvKHb3Zu1Com031JyCHJ6RcHb0CcXtsFdEnanxeMnXGuxqCQ68AG7qqX39juTHgsFyx/81FMTbxJK1wXyI7x9neeUM9erV1UO+mJaJt+tWmHaZkhta3l8a0ov1BgL4v9LgoLiB+9Tlza+EYoUKr7N0rzxL53sCOBoZ6sul9JUCB3Nu/egj7JZON28oWSB/QF2twIDAQABoyEwHzAdBgNVHQ4EFgQU3ZBRZzmGJiNQBMFVnsVVj5+5920wDQYJKoZIhvcNAQELBQADggEBAIuHJrz+a56+zPzxXZrHgR5zB57XkMjBTNUP9orCy8jDGGc73NOWzAgLlbuJs/aXnCtUlDubKKsJcjmdDMbNofrcxb8SMjieWPgfWaVKV5xwJkvfzSDOe3VjGqMYvvcGm4059pwIGD48bfoxNxJ4iEhsG4zlQrl1pBMPD+i20oJXGy+x6O7vmVo/0os1i8qVQZ52Dn16sTgF+qr8ScNT//KY1X75U1TPN1yOOe1GCvN0Qs1OguXciQdKp/eml7P5umBO+z1WdqDzDWRQggYz4k481leoL14xsbW980wBx3YxFEMNDprlcPZlQs7AsQnyCBU8kNQhYzRV2pClcqw+nE8=</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+        
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://localhost:8080/service-poc/logoutsso" ResponseLocation="http://localhost:8080/service-poc/logoutsso"/>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:8080/service-poc/callbacksso" index="1" isDefault="true"/>
+    </md:SPSSODescriptor>
+</md:EntityDescriptor>

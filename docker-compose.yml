@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+
+  keycloak:
+    build: ./keycloak
+    container_name: poc-idp
+    ports:
+      - "8443:8080"
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin123}
+    healthcheck:
+      test: ["CMD", "sh", "-c", "exec 3<>/dev/tcp/localhost/8080 && echo OK"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
+      start_period: 45s
+
+  sp-auth:
+    build: .
+    container_name: poc-sp
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config:/usr/local/tomcat/config:ro
+    environment:
+      SP_ENTITY_ID: ${SP_ENTITY_ID:-urn:saml-poc:sp}
+      SP_CALLBACK_URL: ${SP_CALLBACK_URL:-http://localhost:8080/service-poc/callbacksso}
+    depends_on:
+      keycloak:
+        condition: service_healthy

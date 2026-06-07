@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+                  entityID="urn:saml-poc:idp">
+    <IDPSSODescriptor WantAuthnRequestsSigned="false"
+                      protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDPTCCAiWgAwIBAgIUQ/CEEMcK2zvzie/w3TbSYUHwTocwDQYJKoZIhvcNAQELBQAwLjEMMAoGA1UEAwwDaWRwMREwDwYDVQQKDAhTQU1MIFBvQzELMAkGA1UEBhMCSUQwHhcNMjYwNTIwMDMwOTMwWhcNMzYwNTE3MDMwOTMwWjAuMQwwCgYDVQQDDANpZHAxETAPBgNVBAoMCFNBTUwgUG9DMQswCQYDVQQGEwJJRDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKXcdfSqj2ulCFvhhRRwXql/RQ6gYlq6hotyLEjlplqoIRI6QLqrpt/BYW6lVDYdth8ji/rJaWVLbKCUCis4faSq+2MMK67FCtq0TTtC//ZigkXuorkzzur2/YkrlmFUhzkccrUFqwFFf6XsGEUrQ8/K8XkuwlNZzz7Ia7ed8QEA8UaHFtYyjWPyd6Kiu107mY9/Kr/Usy5Oqr6rgmetG6jDjQXykPiHlZlK0OHQwqTOmM6VRTWwEv49v2LJi7PlmnqeMv8qsGTFV3YHzQ4+SSougAu4qJiu6XMuCQSD0EQUUNRa515EKyhs8C3QloDOtNiLoCsDzvlOCT5b5QJSX6cCAwEAAaNTMFEwHQYDVR0OBBYEFGdsva0GX1O2hsTmAPMqlJ4LwF0TMB8GA1UdIwQYMBaAFGdsva0GX1O2hsTmAPMqlJ4LwF0TMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAIiWOVjOrPGbw2bUKnKfwLhObClnSO7bQsCvE2LP1yz9t/RzCtLdvVlqU+elUswn0neIXa7JCa++NDaxwPmFgCnnycMFnTZoHO8ShvK+VBVZGDe5QY3ZQnSw4VvEWTJyzYpZZYtt+F9UryszqDsW0QnXkl8Ho2G6rv3IGMwAmWA0z1AVJFEY9UTS0eRDr8zw8EJHBJdG5g3yx5+Qn0t3cqklI54Pm4RKTBzb8sA04aYKZezqaFvyKu/R7uCGSb+K0TxJBjomIr/QtNeasnoXl3PMe4Tnoce56d2PZHaMgNQf4s8iHoCrAWDgrNwxKmQ+X88GMBinU2lVPf9I5LYdL64=</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                             Location="http://localhost:8443/realms/poc/protocol/saml"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                             Location="http://localhost:8443/realms/poc/protocol/saml"/>
+    </IDPSSODescriptor>
+</EntityDescriptor>

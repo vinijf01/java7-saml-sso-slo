@@ -1,0 +1,15 @@
+# Maven
+target/
+.m2/
+
+# IDE
+.idea/
+*.iml
+*.iws
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb>
+    <!-- Group Mapping: Maps IdP 'divisi' attribute to application groups -->
+    <groupmapping>
+        <mapping divisi="IT" group="admin"/>
+        <mapping divisi="HR" group="manager"/>
+        <mapping divisi="Marketing" group="editor"/>
+        <mapping divisi="Finance" group="manager"/>
+    </groupmapping>
+
+    <!-- User Mapping: Per-user group override (higher priority than groupmapping) -->
+    <usermapping>
+        <!-- Example: override specific user -->
+        <!-- <mapping username="john.doe" group="superadmin"/> -->
+    </usermapping>
+</esb>
